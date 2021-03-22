@@ -1,11 +1,10 @@
 node{
    stage('SCM Checkout'){
-     git 'https://github.com/raghuk134/my-app'
+     git credentialsId: 'siva63', url: 'https://github.com/sivakumar63/my-app.git'
       
    }
    stage('Build'){
-      def mvnHome = tool name: 'm2', type: 'maven'
-      sh  "${mvnHome}/bin/mvn clean package"
+     sh  "mvn clean package"
    }
    
    stage('email-notificaiton'){
